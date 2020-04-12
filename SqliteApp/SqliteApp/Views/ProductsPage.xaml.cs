@@ -21,7 +21,7 @@ namespace SqliteApp.Views
     {
         ProductsViewModel viewModel;
 
-        private ToolbarItem toolbarItem;
+        //private ToolbarItem toolbarItem;
 
         public ProductsPage()
         {
@@ -29,7 +29,7 @@ namespace SqliteApp.Views
 
             BindingContext = viewModel = new ProductsViewModel();
 
-            InitToolbarMenuItems();
+            //InitToolbarMenuItems();
 
         }
 
@@ -38,41 +38,40 @@ namespace SqliteApp.Views
             
         }
 
-        public void ChangeToolbarItems()
-        {
-            if (ToolbarItems.Count == 2)
-            {
-                ToolbarItems.RemoveAt(1);
-            } 
-            else
-            {
-                ToolbarItems.Add(toolbarItem);
-            }
-        }
+        //public void ChangeToolbarItems()
+        //{
+        //    if (ToolbarItems.Count == 2)
+        //    {
+        //        ToolbarItems.RemoveAt(1);
+        //    } 
+        //    else
+        //    {
+        //        ToolbarItems.Add(toolbarItem);
+        //    }
+        //}
 
-        public void InitToolbarMenuItems()
-        {
-            toolbarItem = new ToolbarItem();
-            toolbarItem.Text = "Edit";
-            toolbarItem.Clicked += OnEditItem_Clicked;
+        //public void InitToolbarMenuItems()
+        //{
+        //    toolbarItem = new ToolbarItem();
+        //    toolbarItem.Text = "Edit";
+        //    toolbarItem.Clicked += OnEditItem_Clicked;
             
-            //var item2 = new ToolbarItem();
-            //item2.Text = "Delete";
-            //item2.Clicked += OnEditItem_Clicked;
-            //toolbarItems.Add(item2);
-        }
+        //    //var item2 = new ToolbarItem();
+        //    //item2.Text = "Delete";
+        //    //item2.Clicked += OnEditItem_Clicked;
+        //    //toolbarItems.Add(item2);
+        //}
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var product = args.SelectedItem as Product;
             if (product == null)
                 return;
-            // < ToolbarItem Text = "Add" Clicked = "AddItem_Clicked" />
-            ChangeToolbarItems();
+            //ChangeToolbarItems();
 
-            //await Navigation.PushAsync(new ProductDetailPage(new ProductDetailViewModel(product)));
+            await Navigation.PushAsync(new ProductDetailPage(new ProductDetailViewModel(product)));
 
-           // ProductsListView.SelectedItem = null;
+            ProductsListView.SelectedItem = null;
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)

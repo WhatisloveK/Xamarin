@@ -38,12 +38,15 @@ namespace SqliteApp.ViewModels
             {
                 var editedProduct = product as Product;
                 Product old = await DataStore.GetItemAsync(product.Id);
+
+                var index = Products.IndexOf(old);
                 Products.Remove(old);
+                Products.Add(editedProduct);
                 await DataStore.UpdateItemAsync(editedProduct);
                 
             });
 
-            MessagingCenter.Subscribe<ProductEditPage, Product>(this, "DeleteItem", async (obj, product) =>
+            MessagingCenter.Subscribe<ProductDetailPage, Product>(this, "DeleteItem", async (obj, product) =>
             {
                 var productForDeletion = product as Product;
                 Products.Remove(productForDeletion);

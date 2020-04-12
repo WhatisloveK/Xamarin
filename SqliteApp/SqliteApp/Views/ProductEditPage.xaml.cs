@@ -1,4 +1,5 @@
 ﻿using SqliteApp.Models;
+using SqliteApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,7 @@ namespace SqliteApp.Views
         public ProductEditPage(Product product)
         {
             InitializeComponent();
-
             Product = product;
-
             BindingContext = this;
         }
 

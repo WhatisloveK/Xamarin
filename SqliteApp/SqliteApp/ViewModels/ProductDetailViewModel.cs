@@ -1,6 +1,7 @@
 ﻿using System;
 
 using SqliteApp.Models;
+using SqliteApp.Views;
 using Xamarin.Forms;
 
 namespace SqliteApp.ViewModels
@@ -12,7 +13,6 @@ namespace SqliteApp.ViewModels
         {
             Title = product?.Name;
             Product = product;
-
         }
 
         

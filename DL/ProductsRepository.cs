@@ -37,6 +37,8 @@ namespace DL.Standard
 
                 var isAdded = tracking.State == EntityState.Added;
 
+                await _databaseContext.SaveChangesAsync();
+
                 return isAdded;
             }
             catch (Exception)
@@ -55,6 +57,7 @@ namespace DL.Standard
 
                 var isModified = tracking.State == EntityState.Modified;
 
+
                 return isModified;
             }
             catch (Exception)
@@ -67,13 +70,13 @@ namespace DL.Standard
         {
             try
             {
-                var oldProduct = _databaseContext.Products.FindAsync(id);
+                var oldProduct = await _databaseContext.Products.FindAsync(id);
 
                 var tracking = _databaseContext.Remove(oldProduct);
 
-                await _databaseContext.SaveChangesAsync();
-
                 var isDeleted = tracking.State == EntityState.Deleted;
+
+                await _databaseContext.SaveChangesAsync();
 
                 return isDeleted;
             }

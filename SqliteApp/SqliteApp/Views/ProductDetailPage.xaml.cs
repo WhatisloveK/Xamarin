@@ -20,6 +20,12 @@ namespace SqliteApp.Views
             InitializeComponent();
 
             BindingContext = this.viewModel = viewModel;
+
+            MessagingCenter.Subscribe<ProductEditPage, Product>(this, "EditItem", async (obj, editedProduct) =>
+            {
+                await Navigation.PopAsync();
+            });
+
         }
 
         public ProductDetailPage()
@@ -35,17 +41,18 @@ namespace SqliteApp.Views
 
             viewModel = new ProductDetailViewModel(product);
             BindingContext = viewModel;
+
         }
 
         async void Edit_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new ProductEditPage(viewModel.Product));
+            await Navigation.PushModalAsync(new NavigationPage(new ProductEditPage(viewModel.Product)));
         }
 
         async void Delete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "DeleteItem", viewModel.Product);
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }
