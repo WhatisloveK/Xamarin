@@ -16,7 +16,7 @@ namespace SqliteApp.Models
 
         public override string ToString()
         {
-            return $"({Id}) {Name}, {Amount}, {Price}";
+            return $"{Name}, {Amount}, {Price}";
         }
 
     }

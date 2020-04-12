@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SqliteApp.Views.ProductsPage"
+             Title="{Binding Title}"
+             x:Name="BrowseItemsPage">
+
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Add" Text="Add" Clicked="AddItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <ListView x:Name="ProductsListView"
+                ItemsSource="{Binding Products}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElementAndDataTemplate"
+                ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--<ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Name}" 
+                                d:Text="{Binding .}"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                            <Label Text="Price: " 
+                                LineBreakMode="WordWrap"
+                                
+                                FontSize="13" />
+                            <Label Text="{Binding Price}" 
+                                d:Text="Item descripton"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                        </StackLayout>
+                    </ViewCell>-->
+                    <ViewCell>
+                        <Grid VerticalOptions="CenterAndExpand" Padding = "20" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120" />
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label  Grid.Column = "0"
+                                    Padding="10"
+                                Text="{Binding Name}" 
+                                d:Text="{Binding .}"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                            <Label Grid.Column = "1" VerticalTextAlignment="End"  FontSize="13" Text = "price: "/>
+                            <Label Grid.Column = "2" VerticalTextAlignment = "End" FontSize="13" Text = "{Binding Price}"/>
+                            <Label Grid.Column = "3" VerticalTextAlignment="End" Padding="30, 0, 0, 0" HorizontalOptions = "End" FontSize="13" Text = "amount: "/>
+                            <Label Grid.Column = "4" VerticalTextAlignment = "End"   FontSize="13" Text = "{Binding Amount}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+</ContentPage>

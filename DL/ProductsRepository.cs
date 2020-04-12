@@ -7,12 +7,20 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace DL.Standard
 {
     public class ProductsRepository : IDataStore<Product>
     {
         private readonly DatabaseContext _databaseContext;
+
+        public ProductsRepository()
+        {
+            var dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "productsDB.db");
+
+            _databaseContext = new DatabaseContext(dbPath);
+        }
 
         public ProductsRepository(string dbPath)
         {
@@ -23,15 +31,15 @@ namespace DL.Standard
         {
             try
             {
-                var tracking = await _databaseContext.Products.AddAsync(product);
+                product.Id = Guid.NewGuid().ToString();
 
-                await _databaseContext.SaveChangesAsync();
+                var tracking = await _databaseContext.Products.AddAsync(product);
 
                 var isAdded = tracking.State == EntityState.Added;
 
                 return isAdded;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -49,7 +57,7 @@ namespace DL.Standard
 
                 return isModified;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -69,7 +77,7 @@ namespace DL.Standard
 
                 return isDeleted;
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return false;
             }
@@ -83,7 +91,7 @@ namespace DL.Standard
 
                 return product;
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return null;
             }
@@ -97,7 +105,7 @@ namespace DL.Standard
 
                 return products;
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return null;
             }

@@ -11,18 +11,19 @@ namespace SqliteApp.Views
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class NewItemPage : ContentPage
+    public partial class NewProductPage : ContentPage
     {
-        public Item Item { get; set; }
+        public Product Product { get; set; }
 
-        public NewItemPage()
+        public NewProductPage()
         {
             InitializeComponent();
 
-            Item = new Item
+            Product = new Product
             {
-                Text = "Item name",
-                Description = "This is an item description."
+                Name = " ",
+                Price = 0,
+                Amount = 0
             };
 
             BindingContext = this;
@@ -30,7 +31,7 @@ namespace SqliteApp.Views
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
+            MessagingCenter.Send(this, "AddItem", Product);
             await Navigation.PopModalAsync();
         }
 
