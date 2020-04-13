@@ -6,7 +6,9 @@ namespace SqliteApp.Models
 {
     public enum MenuItemType
     {
+        
         Browse,
+        Summuries,
         About
     }
     public class HomeMenuItem

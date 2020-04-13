@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="{Binding Title}"
+             x:Class="SqliteApp.Views.SummuriesPage">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Max price:" FontSize="Medium" />
+            <Label Text="{Binding MaxPrice}"  FontSize="Large"/>
+            <Label Text="Min price:" FontSize="Medium" />
+            <Label Text="{Binding MinPrice}"  FontSize="Large"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

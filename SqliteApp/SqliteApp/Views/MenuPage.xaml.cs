@@ -21,7 +21,9 @@ namespace SqliteApp.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                new HomeMenuItem {Id = MenuItemType.Summuries, Title="Summuries"},
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+
             };
 
             ListViewMenu.ItemsSource = menuItems;

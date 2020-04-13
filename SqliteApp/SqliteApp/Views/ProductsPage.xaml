@@ -10,6 +10,7 @@
 
     
     <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Sort" Text="Sort" Clicked="Sort_Clicked" />
         <ToolbarItem Name="Add" Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
 

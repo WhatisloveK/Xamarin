@@ -21,6 +21,7 @@ namespace SqliteApp.Views
     {
         ProductsViewModel viewModel;
 
+
         //private ToolbarItem toolbarItem;
 
         public ProductsPage()
@@ -29,45 +30,25 @@ namespace SqliteApp.Views
 
             BindingContext = viewModel = new ProductsViewModel();
 
+            viewModel.IsSortView = false;
             //InitToolbarMenuItems();
 
         }
 
-        void OnEditItem_Clicked(object sender, EventArgs e)
+        void Sort_Clicked(object sender, EventArgs e)
         {
-            
+            bool isSortView = !viewModel.IsSortView;
+            viewModel.IsSortView = isSortView;
+            ToolbarItems[0].Text = isSortView ? "All products" : "Sort";
+            viewModel.LoadItemsCommand.Execute(null);
         }
 
-        //public void ChangeToolbarItems()
-        //{
-        //    if (ToolbarItems.Count == 2)
-        //    {
-        //        ToolbarItems.RemoveAt(1);
-        //    } 
-        //    else
-        //    {
-        //        ToolbarItems.Add(toolbarItem);
-        //    }
-        //}
-
-        //public void InitToolbarMenuItems()
-        //{
-        //    toolbarItem = new ToolbarItem();
-        //    toolbarItem.Text = "Edit";
-        //    toolbarItem.Clicked += OnEditItem_Clicked;
-            
-        //    //var item2 = new ToolbarItem();
-        //    //item2.Text = "Delete";
-        //    //item2.Clicked += OnEditItem_Clicked;
-        //    //toolbarItems.Add(item2);
-        //}
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var product = args.SelectedItem as Product;
             if (product == null)
                 return;
-            //ChangeToolbarItems();
 
             await Navigation.PushAsync(new ProductDetailPage(new ProductDetailViewModel(product)));
 

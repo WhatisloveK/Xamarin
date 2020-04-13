@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 using SqliteApp.Models;
 using SqliteApp.Views;
+using System.Collections.Generic;
 
 namespace SqliteApp.ViewModels
 {
@@ -14,6 +15,7 @@ namespace SqliteApp.ViewModels
     {
         public ObservableCollection<Product> Products { get; set; }
         public Command LoadItemsCommand { get; set; }
+        public bool IsSortView { get; set; }
 
         public ProductsViewModel()
         {
@@ -22,7 +24,6 @@ namespace SqliteApp.ViewModels
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             SubscribeMessaginCenterEvents();
-           
         }
 
         public void SubscribeMessaginCenterEvents()
@@ -65,10 +66,23 @@ namespace SqliteApp.ViewModels
             {
                 Products.Clear();
                 var products = await DataStore.GetItemsAsync(true);
-                foreach (var item in products)
+                if (IsSortView)
                 {
-                    Products.Add(item);
+                    foreach (var item in products)
+                    {
+                        if (item.Amount > 5)
+                        {
+                            Products.Add(item);
+                        }
+                    }
+                } else
+                {
+                    foreach (var item in products)
+                    {
+                        Products.Add(item);
+                    }
                 }
+                
             }
             catch (Exception ex)
             {
@@ -79,5 +93,6 @@ namespace SqliteApp.ViewModels
                 IsBusy = false;
             }
         }
+        
     }
 }

@@ -36,6 +36,9 @@ namespace SqliteApp.Views
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
+                    case (int)MenuItemType.Summuries:
+                        MenuPages.Add(id, new NavigationPage(new SummuriesPage()));
+                        break;
                 }
             }
 
