@@ -9,6 +9,7 @@ namespace SqliteApp.Models
         
         Browse,
         Summuries,
+        Contacts,
         About
     }
     public class HomeMenuItem

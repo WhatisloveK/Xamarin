@@ -13,13 +13,14 @@ namespace SqliteApp.Views
     [DesignTimeVisible(false)]
     public partial class ProductDetailPage : ContentPage
     {
-        ProductDetailViewModel viewModel;
+        BaseDetailViewModel<Product> viewModel;
 
-        public ProductDetailPage(ProductDetailViewModel viewModel)
+        public ProductDetailPage(BaseDetailViewModel<Product> viewModel)
         {
             InitializeComponent();
 
             BindingContext = this.viewModel = viewModel;
+            this.viewModel.Title = this.viewModel.Item.Name;
 
             MessagingCenter.Subscribe<ProductEditPage, Product>(this, "EditItem", async (obj, editedProduct) =>
             {
@@ -39,19 +40,19 @@ namespace SqliteApp.Views
                 Amount = 0
             };
 
-            viewModel = new ProductDetailViewModel(product);
+            viewModel = new BaseDetailViewModel<Product>(product);
             BindingContext = viewModel;
 
         }
 
         async void Edit_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ProductEditPage(viewModel.Product)));
+            await Navigation.PushModalAsync(new NavigationPage(new ProductEditPage(viewModel.Item)));
         }
 
         async void Delete_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "DeleteItem", viewModel.Product);
+            MessagingCenter.Send(this, "DeleteItem", viewModel.Item);
             await Navigation.PopAsync();
         }
     }

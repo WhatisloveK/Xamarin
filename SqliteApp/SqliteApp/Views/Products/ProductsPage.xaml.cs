@@ -50,7 +50,7 @@ namespace SqliteApp.Views
             if (product == null)
                 return;
 
-            await Navigation.PushAsync(new ProductDetailPage(new ProductDetailViewModel(product)));
+            await Navigation.PushAsync(new ProductDetailPage(new BaseDetailViewModel<Product>(product)));
 
             ProductsListView.SelectedItem = null;
         }

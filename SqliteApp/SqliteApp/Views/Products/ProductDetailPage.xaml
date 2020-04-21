@@ -13,11 +13,11 @@
 
     <StackLayout Spacing="20" Padding="15">
         <Label Text="Name:" FontSize="Medium" />
-        <Label Text="{Binding Product.Name}" d:Text="Item name" FontSize="Small"/>
+        <Label Text="{Binding Item.Name}" d:Text="Item name" FontSize="Small"/>
         <Label Text="Price:" FontSize="Medium" />
-        <Label Text="{Binding Product.Price}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="{Binding Item.Price}" d:Text="Item description" FontSize="Small"/>
         <Label Text="Amount:" FontSize="Medium" />
-        <Label Text="{Binding Product.Price}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="{Binding Item.Price}" d:Text="Item description" FontSize="Small"/>
     </StackLayout>
     
 </ContentPage>

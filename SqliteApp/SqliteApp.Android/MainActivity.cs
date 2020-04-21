@@ -9,6 +9,7 @@ using Android.OS;
 using System.IO;
 using DL.Standard;
 
+
 namespace SqliteApp.Droid
 {
     [Activity(Label = "SqliteApp", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -20,7 +21,6 @@ namespace SqliteApp.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
-
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
