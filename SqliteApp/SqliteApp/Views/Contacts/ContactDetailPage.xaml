@@ -12,5 +12,7 @@
         <Label Text="{Binding Item.Name}" d:Text="Item name" FontSize="Small"/>
         <Label Text="Number:" FontSize="Medium" />
         <Label Text="{Binding Item.Number}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="Email:" FontSize="Medium" />
+        <Label Text="{Binding Item.Emails[0]}" d:Text="Item description" FontSize="Small"/>
     </StackLayout>
 </ContentPage>
