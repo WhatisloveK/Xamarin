@@ -49,8 +49,8 @@ namespace SqliteApp.Views
 
         private Map GetMap()
         {
-            Position cubic = new Position(50.383203, 30.471007); //cubic)
-            MapSpan mapSpan = new MapSpan(cubic, 0.01, 0.01);
+            Position independanceSquare = new Position(50.450555, 30.5210808); 
+            MapSpan mapSpan = new MapSpan(independanceSquare, 0.01, 0.01);
 
             Map map = new Map(mapSpan)
             {
