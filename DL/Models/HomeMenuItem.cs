@@ -6,6 +6,7 @@ namespace SqliteApp.Models
 {
     public enum MenuItemType
     {
+        ExpressionSolver,
         FileWorker,
         Products,
         Summuries,

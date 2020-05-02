@@ -20,9 +20,10 @@ namespace SqliteApp.Views
 
             menuItems = new List<HomeMenuItem>
             {
+                new HomeMenuItem {Id = MenuItemType.ExpressionSolver, Title="Calculate expression" },
                 new HomeMenuItem {Id = MenuItemType.FileWorker, Title="Work with file" },
                 new HomeMenuItem {Id = MenuItemType.Products, Title="Products" },
-                new HomeMenuItem {Id = MenuItemType.Summuries, Title="Summuries"},
+                new HomeMenuItem {Id = MenuItemType.Summuries, Title="Product Summuries"},
                 new HomeMenuItem {Id = MenuItemType.Contacts, Title="Contacts"},
                 new HomeMenuItem {Id = MenuItemType.Location, Title="Location"},
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
@@ -31,7 +32,7 @@ namespace SqliteApp.Views
 
             ListViewMenu.ItemsSource = menuItems;
 
-            ListViewMenu.SelectedItem = menuItems[1];
+            ListViewMenu.SelectedItem = menuItems[2];
             ListViewMenu.ItemSelected += async (sender, e) =>
             {
                 if (e.SelectedItem == null)

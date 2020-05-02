@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SqliteApp.Views.ExpressionSolverPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="" BackgroundColor="DarkCyan" Grid.Column="0"
+               Grid.Row="0" Grid.RowSpan="8" Grid.ColumnSpan="4"/>
+
+        <Label  VerticalTextAlignment="Center" Text=" U = (e^x^3+cos^2(x-4))/(arctg(x) + 5.2y)" FontSize="Large"
+                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+                Grid.RowSpan="1" BackgroundColor="WhiteSmoke"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Padding="0,10,0,0"
+           Text="Enter X" FontSize = "19" />
+        <Entry x:Name="digit"
+            Grid.Row="1" Grid.Column="1" Text="0" />
+        <Label Grid.Row="2" Grid.Column="0" x:Name="result" Grid.ColumnSpan="4"
+               Text="Result = " FontSize = "19"/>
+
+
+        <Button Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="1" BackgroundColor="Cyan" Text="Calculate" Clicked="SolveButton_Clicked"/>
+    </Grid>
+
+</ContentPage>

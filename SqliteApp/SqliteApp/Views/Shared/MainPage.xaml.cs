@@ -30,6 +30,9 @@ namespace SqliteApp.Views
             {
                 switch (id)
                 {
+                    case (int)MenuItemType.ExpressionSolver:
+                        MenuPages.Add(id, new NavigationPage(new ExpressionSolverPage()));
+                        break;
                     case (int)MenuItemType.FileWorker:
                         MenuPages.Add(id, new NavigationPage(new FileWorkerPage()));
                         break;

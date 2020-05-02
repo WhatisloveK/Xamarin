@@ -155,7 +155,8 @@ namespace SqliteApp.Views
 
         async void Search_Clicked(object sender, EventArgs e)
         {
-           await Navigation.PushAsync(new NavigationPage(new FindByPositionPage()));
+
+           await Navigation.PushAsync(new FindByPositionPage());
         }
     }
 }
