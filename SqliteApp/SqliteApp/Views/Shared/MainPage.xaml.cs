@@ -21,7 +21,7 @@ namespace SqliteApp.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Products, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -30,7 +30,10 @@ namespace SqliteApp.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Browse:
+                    case (int)MenuItemType.FileWorker:
+                        MenuPages.Add(id, new NavigationPage(new FileWorkerPage()));
+                        break;
+                    case (int)MenuItemType.Products:
                         MenuPages.Add(id, new NavigationPage(new ProductsPage()));
                         break;
                     case (int)MenuItemType.Contacts:

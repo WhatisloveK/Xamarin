@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SqliteApp.Views.FileWorkerPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="GetPlot" Text="Show plot" Clicked="GetPlot_Clicked" />
+    </ContentPage.ToolbarItems>
+    <Grid >
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Image Source="" BackgroundColor="DarkCyan" Grid.Column="0"
+               Grid.Row="0" Grid.RowSpan="8" Grid.ColumnSpan="4"/>
+        <Label  VerticalTextAlignment="Center" Text=" U = (e^x^3+cos^2(x-4))/(arctg(x) + 5.2y)" FontSize="Large"
+                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+                Grid.RowSpan="1" BackgroundColor="WhiteSmoke"/>
+
+        <Label Grid.Row="1" Grid.Column="0"
+           Text="Left Border: " FontSize = "16" />
+        <Entry x:Name="leftBorderInput"
+            Grid.Row="1" Grid.Column="1" Text="0" />
+        <Label Grid.Row="2" Grid.Column="0"
+               Text="Right Border: " FontSize = "16"/>
+        <Entry x:Name="rightBorderInput"
+            Grid.Row="2" Grid.Column="1" Text="0" />
+        <Label Grid.Row="3" Grid.Column="0"
+               Text="Step:" FontSize = "16"/>
+        <Entry x:Name="stepInput"
+            Grid.Row="3" Grid.Column="1" Text="0" />
+
+        
+        <Button Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Grid.RowSpan="1"
+                Text="Calculate and save" 
+                Clicked="CalculateAndWriteToFile_click" BackgroundColor="Cyan"/>
+        <Button Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" Grid.RowSpan="1"
+                Text="Read result from file" 
+                Clicked="ReadFromFile_click" BackgroundColor="Cyan"/>
+
+    </Grid>
+</ContentPage>

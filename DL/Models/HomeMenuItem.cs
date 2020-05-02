@@ -6,8 +6,8 @@ namespace SqliteApp.Models
 {
     public enum MenuItemType
     {
-        
-        Browse,
+        FileWorker,
+        Products,
         Summuries,
         Contacts,
         Location,

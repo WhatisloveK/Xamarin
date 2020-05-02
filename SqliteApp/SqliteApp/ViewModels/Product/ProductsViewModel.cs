@@ -19,7 +19,7 @@ namespace SqliteApp.ViewModels
 
         public ProductsViewModel()
         {
-            Title = "Browse";
+            Title = "Products";
             Products = new ObservableCollection<Product>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 

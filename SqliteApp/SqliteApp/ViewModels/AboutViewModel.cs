@@ -10,7 +10,7 @@ namespace SqliteApp.ViewModels
         public AboutViewModel()
         {
             Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://xamarin.com"));
+            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://www.instagram.com/l_whatislove_l/"));
         }
 
         public ICommand OpenWebCommand { get; }

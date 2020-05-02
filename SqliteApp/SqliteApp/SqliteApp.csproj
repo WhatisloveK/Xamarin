@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="OxyPlot.Xamarin.Forms" Version="1.0.0" />
     <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.657" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />  
@@ -29,28 +30,31 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\Products\ProductEditPage.xaml.cs">
+    <Compile Update="Views\Product\ProductEditPage.xaml.cs">
       <DependentUpon>ProductEditPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Products\NewProductPage.xaml.cs">
+    <Compile Update="Views\Product\NewProductPage.xaml.cs">
       <DependentUpon>NewProductPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Products\ProductsPage.xaml.cs">
+    <Compile Update="Views\Product\ProductsPage.xaml.cs">
       <DependentUpon>ProductsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Products\ProductDetailPage.xaml.cs">
+    <Compile Update="Views\Product\ProductDetailPage.xaml.cs">
       <DependentUpon>ProductDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\SummuriesPage.xaml.cs">
+    <Compile Update="Views\Product\SummuriesPage.xaml.cs">
       <DependentUpon>SummuriesPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\Contacts\ContactDetailPage.xaml">
+    <EmbeddedResource Update="Views\Contact\ContactDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Contacts\ContactsPage.xaml">
+    <EmbeddedResource Update="Views\Contact\ContactsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Expression\FileWorkerPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Location\FindByPositionPage.xaml">
@@ -59,10 +63,13 @@
     <EmbeddedResource Update="Views\Location\LocationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Products\ProductEditPage.xaml">
+    <EmbeddedResource Update="Views\Expression\PlotPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SummuriesPage.xaml">
+    <EmbeddedResource Update="Views\Product\ProductEditPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Product\SummuriesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
