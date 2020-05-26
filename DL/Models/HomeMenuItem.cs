@@ -12,6 +12,7 @@ namespace SqliteApp.Models
         Summuries,
         Contacts,
         Location,
+        Help,
         About
     }
     public class HomeMenuItem

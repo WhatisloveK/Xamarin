@@ -26,6 +26,7 @@ namespace SqliteApp.Views
                 new HomeMenuItem {Id = MenuItemType.Summuries, Title="Product Summuries"},
                 new HomeMenuItem {Id = MenuItemType.Contacts, Title="Contacts"},
                 new HomeMenuItem {Id = MenuItemType.Location, Title="Location"},
+                new HomeMenuItem {Id = MenuItemType.Help, Title="Help"},
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
 
             };
